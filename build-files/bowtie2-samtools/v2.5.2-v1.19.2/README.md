@@ -1,7 +1,7 @@
 # Overview
 This container provides a minimal and efficient environment for running Bowtie2 and Samtools — two essential tools in next-generation sequencing (NGS) data analysis pipelines.
 
-Built on Ubuntu 24.04 (LTS) with a focus on small size, security, and compatibility, this image is optimized for use in local development, CI/CD workflows, cloud environments, and cross-platform deployments (including Apple Silicon and ARM64 servers).
+Built on Ubuntu:noble  with a focus on small size, security, and compatibility, this image is optimized for use in local development, CI/CD workflows, cloud environments, and cross-platform deployments (including Apple Silicon and ARM64 servers).
 
 # Pre-installed Tools:
 
@@ -17,13 +17,13 @@ curl, wget, gzip, xz, tar, procps
 
 ```
 # Pull the latest image
-docker pull zpqu/bowtie2-samtools:v2.5.4-v1.21
+docker pull zpqu/bowtie2-samtools:v2.5.2-v1.19.2
 
 # Run Bowtie2 help
-docker run --rm zpqu/bowtie2-samtools:v2.5.4-v1.21 bowtie2 --help
+docker run --rm zpqu/bowtie2-samtools:v2.5.2-v1.19.2 bowtie2 --help
 
 # Run Samtools help
-docker run --rm zpqu/bowtie2-samtools:v2.5.4-v1.21 samtools --help
+docker run --rm zpqu/bowtie2-samtools:v2.5.2-v1.19.2 samtools --help
 ```
 
 License

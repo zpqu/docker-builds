@@ -5,14 +5,14 @@
 # 'FROM' defines where the Dockerfile is starting to build from. This command has to come first in the file
 # The 'as' keyword lets you name the folowing stage. The production image uses everything to the 'app' stage.
 
-# use ubuntu 25.04 as base image
-FROM ubuntu:plucky AS app
+# use ubuntu:noble as base image
+FROM ubuntu:noble AS app
 
-ARG BOWTIE2VER=2.5.4
-ARG SAMTOOLSVER=1.21
+ARG BOWTIE2VER=2.5.2
+ARG SAMTOOLSVER=1.19.2
 
 # metadata
-LABEL base.image="ubuntu:plucky"
+LABEL base.image="ubuntu:noble"
 LABEL dockerfile.version="1"
 LABEL software="Bowtie2-samtools"
 LABEL software.version="v${BOWTIE2VER}-v{SAMTOOLSVER}"
