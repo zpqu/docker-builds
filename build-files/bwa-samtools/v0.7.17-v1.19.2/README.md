@@ -17,13 +17,13 @@ curl, wget, gzip, xz, tar, procps
 
 ```
 # Pull the latest image
-docker pull zpqu/bwa-samtools:v0.1.17-v1.21
+docker pull zpqu/bwa-samtools:v0.7.17-v1.19.2
 
 # Run Bowtie2 help
-docker run --rm zpqu/bwa-samtools:v0.1.17-v1.21 bwa
+docker run --rm zpqu/bwa-samtools:v0.7.17-v1.19.2 bwa
 
 # Run Samtools help
-docker run --rm zpqu/bwa-samtools:v0.1.17-v1.21 samtools --help
+docker run --rm zpqu/bwa-samtools:v0.7.17-v1.19.2 samtools --help
 ```
 
 License

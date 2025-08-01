@@ -9,13 +9,13 @@
 FROM ubuntu:noble AS app
 
 ARG BWA2VER=0.7.17
-ARG SAMTOOLSVER=1.21
+ARG SAMTOOLSVER=1.19.2
 
 # metadata
 LABEL base.image="ubuntu:noble"
 LABEL dockerfile.version="1"
 LABEL software="bwa-samtools"
-LABEL software.version="v${BWA2VER}-v{SAMTOOLSVER}"
+LABEL software.version="v${BWA2VER}-v${SAMTOOLSVER}"
 LABEL software.license="GPLv3-MIT"
 LABEL description="Genome aligner BWA with samtools"
 LABEL maintainer="Zhipeng Qu"
