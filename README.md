@@ -53,5 +53,5 @@ Further documentation can be found at [docs.sylabs.io](https://docs.sylabs.io/gu
 You can also view the list of images on Docker hub here: https://hub.docker.com/r/zpqu/
 
 ## License
-  * [GNU GPLv3 license](/LICENSE)
+  * [MIT license](/LICENSE)
   * Licenses for each program are also listed as a metadata `LABEL` within each dockerfile
