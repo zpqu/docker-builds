@@ -28,12 +28,12 @@ RUN apt-get update && \
         ca-certificates \
         python3 \
         curl \
+        tabix \
     && apt-get autoclean && rm -rf /var/lib/apt/lists/*
 
 
 # Download and install SnpEff v5.3a
 ENV SnpEff_VERSION="5.3a"
-
 RUN wget -q "https://snpeff.odsp.astrazeneca.com/versions/snpEff_latest_core.zip" && \
     unzip -q "snpEff_latest_core.zip" && \
     rm "snpEff_latest_core.zip"
@@ -48,29 +48,11 @@ RUN chmod +x /snpEff/snpEff.jar && \
   echo "exec java -jar /snpEff/SnpSift.jar """"$""@"""" " >> /snpEff/snpsift && \
   chmod +x /snpEff/snpsift
 
-# Fix script paths
-RUN for file in $(grep -ilr "snpEff.jar" /snpEff/scripts/); do \
-      sed -i 's|snpEff.jar|/snpEff/snpEff.jar|g' "$file"; \
-    done && \
-    for file in $(grep -ilr "SnpSift.jar" /snpEff/scripts/); do \
-      sed -i 's|SnpSift.jar|/snpEff/SnpSift.jar|g' "$file"; \
-    done && \
-    chmod +x /snpEff/scripts/*.sh
+# Modify scripts to jar location
+RUN for file in $(grep -iw "snpEff.jar" /snpEff/scripts/*sh | cut -f 1 -d ":" ) ; do cat $file | sed 's/snpEff.jar/\/snpEff\/snpEff.jar/g' > $file.tmp ; mv $file.tmp $file  ; done && \
+  for file in $(grep -iw "SnpSift.jar" /snpEff/scripts/*sh | cut -f 1 -d ":" ) ; do cat $file | sed 's/snpEff.jar/\/snpEff\/SnpSift.jar/g' > $file.tmp ; mv $file.tmp $file  ; done && \
+  chmod +x /snpEff/scripts/*sh
 
-# Create data directory and set permissions
-RUN mkdir -p /snpEff/data && \
-    chown -R 1001:1001 /snpEff && \
-    chmod -R 755 /snpEff
-
-# Create snpeff user
-RUN groupadd --system snpeff && \
-    useradd --system --create-home --home-dir /home/snpeff --shell /bin/bash --gid snpeff snpeff && \
-    usermod -u 1001 snpeff && groupmod -g 1001 snpeff && \
-    chown -R snpeff:snpeff /snpEff
-
-USER snpeff
-
-# add snpEff to PATH
 ENV PATH="${PATH}:/snpEff:/snpEff/scripts"
 
 CMD ["snpeff", "-help"]
