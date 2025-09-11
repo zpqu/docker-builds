@@ -48,6 +48,7 @@ Further documentation can be found at [docs.sylabs.io](https://docs.sylabs.io/gu
 | :--------: | ------- | -------- |
 | [bowtie2-samtools](https://hub.docker.com/r/zpqu/bowtie2-samtools/) <br/> [![docker pulls](https://badgen.net/docker/pulls/zpqu/bowtie2-samtools)](https://hub.docker.com/r/zpqu/bowtie2-samtools) | </li><li>[v2.5.2-v1.19.2](./bowtie2-samtools/v2.5.2-v1.19.2/)</li></ul> | https://github.com/BenLangmead/bowtie2 <br/> https://github.com/samtools/samtools |
 | [bwa-samtools](https://hub.docker.com/r/zpqu/bwa-samtools/) <br/> [![docker pulls](https://badgen.net/docker/pulls/zpqu/bwa-samtools)](https://hub.docker.com/r/zpqu/bwa-samtools) | </li><li>[v0.7.17-v1.19.2](./bwa-samtools/v0.7.17-v1.19.2/)</li></ul> | https://github.com/lh3/bwa <br/> https://github.com/samtools/samtools |
+| [snpEff](https://pcingola.github.io/SnpEff/) <br/> [![docker pulls](https://badgen.net/docker/pulls/zpqu/snpeff)](https://hub.docker.com/r/zpqu/snpeff) | </li><li>[v5.3a](./snpeff/v5.3a/)</li></ul> | https://github.com/pcingola/SnpEff |
 
 You can also view the list of images on Docker hub here: https://hub.docker.com/r/zpqu/
 
